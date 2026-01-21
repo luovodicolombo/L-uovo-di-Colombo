@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHE DUE UOVA! | Freschezza a 22 anni</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #ffcc00; 
@@ -13,7 +18,8 @@
         }
 
         body { 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            /* 2. Applicazione font Quicksand */
+            font-family: 'Quicksand', sans-serif; 
             margin: 0; 
             color: var(--dark); 
             line-height: 1.6;
@@ -31,172 +37,21 @@
             border-bottom: 8px solid var(--dark);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        h1 { font-size: 4rem; margin: 0; text-transform: uppercase; letter-spacing: -2px; color: var(--dark); }
-        .tagline { font-size: 1.4rem; font-weight: bold; margin-top: 10px; }
+        
+        /* Titolo con font Quicksand Bold */
+        h1 { 
+            font-size: 4rem; 
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: -1px; 
+            color: var(--dark); 
+            font-weight: 700;
+        }
+
+        .tagline { font-size: 1.4rem; font-weight: 600; margin-top: 10px; }
 
         .mini-bio { 
             max-width: 700px; 
             margin: -30px auto 40px; 
             background: white; 
-            padding: 25px; 
-            border: 3px solid var(--dark);
-            text-align: center;
-            box-shadow: 10px 10px 0px var(--secondary);
-            position: relative;
-            z-index: 10;
-        }
-
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-
-        .section-card { 
-            background: var(--light); 
-            padding: 40px; 
-            border-radius: 20px; 
-            border: 2px solid var(--dark);
-            margin-bottom: 50px;
-            backdrop-filter: blur(5px); /* Effetto vetro sfocato */
-        }
-        h2 { font-size: 2.2rem; text-align: center; color: var(--dark); text-transform: uppercase; margin-top: 0; }
-        
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 1.1rem; }
-        input, select { 
-            width: 100%; 
-            padding: 15px; 
-            border: 2px solid var(--dark); 
-            border-radius: 10px; 
-            box-sizing: border-box;
-            font-size: 1rem;
-            background: #fff;
-        }
-
-        /* Stile speciale per PayPal */
-        .btn-paypal { 
-            background: #0070ba; 
-            color: white; 
-            width: 100%; 
-            padding: 20px; 
-            border: none; 
-            border-radius: 50px; 
-            font-size: 1.4rem; 
-            font-weight: bold; 
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.2s, background 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .btn-paypal:hover { background: #005ea6; transform: translateY(-3px); }
-
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 15px; 
-        }
-        .photo-placeholder { 
-            background: rgba(255,255,255,0.7); 
-            height: 200px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-radius: 15px;
-            border: 2px dashed var(--dark);
-            color: #555;
-            font-weight: bold;
-        }
-
-        footer { text-align: center; padding: 40px; color: white; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); font-weight: bold; }
-    </style>
-    <script>
-        // Funzione per mostrare il campo quantità personalizzata
-        function checkQuantita(select) {
-            var customInput = document.getElementById('custom-qty-group');
-            if(select.value === 'custom') {
-                customInput.style.display = 'block';
-            } else {
-                customInput.style.display = 'none';
-            }
-        }
-    </script>
-</head>
-<body>
-
-<header>
-    <h1>CHE DUE UOVA!</h1>
-    <p class="tagline">Genuinità fresca da galline felici nel prato.</p>
-</header>
-
-<div class="mini-bio">
-    <strong>Chi sono:</strong> Ho 22 anni e credo nel rispetto della natura. Le mie galline corrono libere in questo prato ogni giorno. Ti porto a casa uova freschissime, sane e prodotte con amore.
-</div>
-
-<div class="container">
-
-    <section class="section-card">
-        <h2>🥚 COMPRA LE TUE UOVA</h2>
-        <form>
-            <div class="form-group">
-                <label>Nome e Cognome</label>
-                <input type="text" placeholder="Mario Rossi" required>
-            </div>
-            
-            <div class="form-group">
-                <label>Indirizzo di Consegna</label>
-                <input type="text" placeholder="Via, Civico, Città" required>
-            </div>
-
-            <div class="form-group">
-                <label>Quante uova desideri?</label>
-                <select id="quantita" onchange="checkQuantita(this)" required>
-                    <option value="6">Mezza dozzina (6 uova)</option>
-                    <option value="12">Una dozzina (12 uova)</option>
-                    <option value="24">Due dozzine (24 uova)</option>
-                    <option value="custom">Scegli tu il numero...</option>
-                </select>
-            </div>
-
-            <div class="form-group" id="custom-qty-group" style="display:none;">
-                <label>Specifica il numero di uova:</label>
-                <input type="number" id="custom-qty" placeholder="Esempio: 15">
-            </div>
-
-            <div class="form-group">
-                <label>Email per conferma</label>
-                <input type="email" placeholder="latuamail@esempio.it" required>
-            </div>
-
-            <p style="font-size: 0.9rem; text-align: center; color: #555;">
-                Cliccando il tasto pagherai sulla mia pagina PayPal.<br>
-                Ricordati di inserire l'importo corretto!
-            </p>
-
-            <a href="https://www.paypal.me/BarlattaniAnastasia" class="btn-paypal" target="_blank">
-                Paga con PayPal
-            </a>
-        </form>
-    </section>
-
-    <section class="section-card">
-        <h2>Il mio Lavoro</h2>
-        <p>Allevo le mie galline all'aperto, proprio come vedi nello sfondo di questo sito. Niente gabbie, solo erba fresca e libertà. Questo garantisce un uovo saporito e ricco di nutrienti, esattamente come quelli di una volta.</p>
-    </section>
-
-    <section class="section-card">
-        <h2>Galleria</h2>
-        <div class="gallery">
-            <div class="photo-placeholder">Foto Galline</div>
-            <div class="photo-placeholder">Foto Uova</div>
-            <div class="photo-placeholder">Foto Prato</div>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 - Che Due Uova! - Allevamento Etico di Anastasia Barlattani</p>
-</footer>
-
-</body>
-</html>
+            padding: 25px;
