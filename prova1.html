@@ -47,4 +47,135 @@
         
         .form-group { margin-bottom: 20px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 1.1rem; }
-        input, select {
+        input, select { 
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid var(--dark); 
+            border-radius: 10px; 
+            box-sizing: border-box;
+            font-size: 1rem;
+            background: #fff;
+        }
+
+        .payment-notice {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            border-left: 5px solid #03a9f4;
+        }
+
+        .btn-paypal { 
+            background: #0070ba; 
+            color: white; 
+            width: 100%; 
+            padding: 20px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .btn-paypal:hover { background: #005ea6; }
+
+        /* Galleria */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            margin-top: 20px;
+        }
+        .photo-placeholder { 
+            background: #eee; 
+            height: 250px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 15px;
+            border: 2px dashed #bbb;
+            color: #888;
+        }
+
+        .info-box { background: #fff; padding: 30px; border-radius: 15px; border: 2px solid #eee; }
+
+        footer { text-align: center; padding: 50px; color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CHE DUE UOVA!</h1>
+    <p class="tagline">Genuinità fresca da galline che sorridono.</p>
+</header>
+
+<div class="mini-bio">
+    <strong>Chi sono:</strong> Ho 22 anni e ho scelto la terra. Mi occupo personalmente delle mie galline, cresciute all'aperto con rispetto e libertà. Le mie uova sono il risultato di una passione vera per le cose semplici e sane.
+</div>
+
+<div class="container">
+
+    <section id="compra" class="order-section">
+        <h2>🥚 COMPRA LE TUE UOVA</h2>
+        <form>
+            <div class="form-group">
+                <label>Nome e Cognome</label>
+                <input type="text" placeholder="Scrivi qui..." required>
+            </div>
+            <div class="form-group">
+                <label>Indirizzo di Consegna</label>
+                <input type="text" placeholder="Via, Civico, Città" required>
+            </div>
+            <div class="form-group">
+                <label>Quante uova vuoi ricevere?</label>
+                <select required id="quantita">
+                    <option value="6">Mezza dozzina (6 uova)</option>
+                    <option value="12">Una dozzina (12 uova)</option>
+                    <option value="24">Doppia dozzina (24 uova)</option>
+                    <option value="30">Contenitore grande (30 uova)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tua Email</label>
+                <input type="email" placeholder="email@esempio.it" required>
+            </div>
+
+            <div class="payment-notice">
+                <strong>Istruzioni:</strong> Cliccando il tasto qui sotto verrai indirizzato alla mia pagina PayPal. Inserisci l'importo totale e conferma l'ordine!
+            </div>
+
+            <a href="https://www.paypal.me/BarlattaniAnastasia" class="btn-paypal" target="_blank">
+                Paga ora con PayPal
+            </a>
+        </form>
+    </section>
+
+    <section id="info" style="margin-top: 50px;">
+        <h2>Cosa faccio ogni giorno</h2>
+        <div class="info-box">
+            <p>Il mio lavoro inizia all'alba, tra il verde dei prati. Allevo le galline senza l'uso di gabbie, lasciandole libere di razzolare sotto il sole. Questo non è solo un allevamento, è un impegno per garantire freschezza e salute a chi sceglie le mie uova. Ogni uovo è raccolto a mano e consegnato con cura.</p>
+        </div>
+    </section>
+
+    <section id="galleria" style="margin-top: 50px;">
+        <h2>Galleria</h2>
+        <div class="gallery">
+            <div class="photo-placeholder">Qui metterai la foto delle galline</div>
+            <div class="photo-placeholder">Qui metterai la foto delle uova</div>
+            <div class="photo-placeholder">Qui metterai una tua foto al lavoro</div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 - Che Due Uova! - Allevamento etico di Anastasia Barlattani</p>
+</footer>
+
+</body>
+</html>
