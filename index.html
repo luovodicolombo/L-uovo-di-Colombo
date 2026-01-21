@@ -105,4 +105,134 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             font-family: 'Quicksand', sans-serif;
         }
-        .btn
+        .btn-paypal:hover { background: #005ea6; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: white; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); font-weight: 700; }
+
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 15px; 
+        }
+        .photo-placeholder { 
+            background: rgba(255,255,255,0.7); 
+            height: 150px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 20px;
+            border: 2px dashed var(--dark);
+            color: #555;
+            font-weight: 700;
+        }
+    </style>
+
+    <script>
+        function aggiornaLinkPayPal() {
+            const select = document.getElementById('quantita');
+            const customQtyInput = document.getElementById('custom-qty');
+            const btnPaypal = document.getElementById('paypal-link');
+            const baseUrl = "https://www.paypal.me/BarlattaniAnastasia/";
+            
+            let prezzo = "4.80"; // Prezzo default 6 uova
+
+            if (select.value === '6') {
+                prezzo = "4.80";
+            } else if (select.value === '12') {
+                prezzo = "9.60";
+            } else if (select.value === '24') {
+                prezzo = "19.20";
+            } else if (select.value === 'custom') {
+                const qty = customQtyInput.value || 0;
+                prezzo = (qty * 0.80).toFixed(2);
+            }
+
+            btnPaypal.href = baseUrl + prezzo;
+        }
+
+        function checkQuantita(select) {
+            var customInput = document.getElementById('custom-qty-group');
+            if(select.value === 'custom') {
+                customInput.style.display = 'block';
+            } else {
+                customInput.style.display = 'none';
+            }
+            aggiornaLinkPayPal();
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>CHE DUE UOVA!</h1>
+    <p class="tagline">Genuinità fresca da galline felici nel prato.</p>
+</header>
+
+<div class="mini-bio">
+    <strong>Chi sono:</strong> Ho 22 anni e credo nel rispetto della natura. Le mie galline corrono libere in questo prato ogni giorno. Ti porto a casa uova freschissime (0,80€ l'una), sane e prodotte con amore.
+</div>
+
+<div class="container">
+
+    <section class="section-card">
+        <h2>🥚 ORDINA E PAGA ORA</h2>
+        <form>
+            <div class="form-group">
+                <label>Nome e Cognome</label>
+                <input type="text" placeholder="Mario Rossi" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Indirizzo di Consegna</label>
+                <input type="text" placeholder="Via, Civico, Città" required>
+            </div>
+
+            <div class="form-group">
+                <label>Scegli la quantità</label>
+                <select id="quantita" onchange="checkQuantita(this)" required>
+                    <option value="6">Mezza dozzina (6 uova) - 4,80€</option>
+                    <option value="12">Una dozzina (12 uova) - 9,60€</option>
+                    <option value="24">Due dozzine (24 uova) - 19,20€</option>
+                    <option value="custom">Altro numero (0,80€ cad.)</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="custom-qty-group" style="display:none;">
+                <label>Quante uova vuoi? (0,80€ l'una)</label>
+                <input type="number" id="custom-qty" placeholder="Esempio: 10" oninput="aggiornaLinkPayPal()">
+            </div>
+
+            <div style="background: #fff3cd; padding: 15px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #ffeeba; text-align: center;">
+                <p style="margin: 0; font-size: 0.95rem; font-weight: 700;">
+                    ✅ Il prezzo su PayPal si aggiorna da solo!
+                </p>
+            </div>
+
+            <a href="https://www.paypal.me/BarlattaniAnastasia/4.80" id="paypal-link" class="btn-paypal" target="_blank">
+                Paga ora con PayPal
+            </a>
+        </form>
+    </section>
+
+    <section class="section-card">
+        <h2>Il mio Lavoro</h2>
+        <p>Allevo le mie galline all'aperto. Niente gabbie, solo erba fresca e libertà. Questo garantisce un uovo saporito e ricco di nutrienti, esattamente come quelli di una volta.</p>
+    </section>
+
+    <section class="section-card">
+        <h2>Galleria</h2>
+        <div class="gallery">
+            <div class="photo-placeholder">Foto Galline</div>
+            <div class="photo-placeholder">Foto Uova</div>
+            <div class="photo-placeholder">Foto Prato</div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 - Che Due Uova! - Allevamento Etico di Anastasia Barlattani</p>
+</footer>
+
+</body>
+</html>
