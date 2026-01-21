@@ -110,7 +110,7 @@
 
     <section id="compra" class="order-section">
         <h2>🥚 ORDINA LE TUE UOVA</h2>
-        <form action="INSERISCI_QUI_IL_LINK_PAYPAL_IN_FUTURO" method="POST">
+        <form action="https://www.paypal.me/BarlattaniAnastasia" method="POST">
             <div class="form-group">
                 <label>Nome e Cognome</label>
                 <input type="text" placeholder="Mario Rossi" required>
@@ -122,6 +122,7 @@
             <div class="form-group">
                 <label>Quante uova vuoi?</label>
                 <select required>
+                    <option value="n uova">Scegli te il numero</option>
                     <option value="6">Confezione da 6</option>
                     <option value="12">Confezione da 12</option>
                     <option value="24">Confezione da 24 (Scorta famiglia)</option>
@@ -134,7 +135,7 @@
             <div class="form-group">
                 <label>Metodo di Pagamento</label>
                 <select disabled>
-                    <option>PayPal (Disponibile a breve)</option>
+                    <option>PayPal</option>
                 </select>
             </div>
             <button type="button" class="btn-order" onclick="alert('Grazie! Il sistema di pagamento sarà attivo tra pochissimo.')">PAGA E ORDINA ORA</button>
