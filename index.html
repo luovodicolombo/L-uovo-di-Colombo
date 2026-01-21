@@ -18,12 +18,10 @@
         }
 
         body { 
-            /* 2. Applicazione font Quicksand */
             font-family: 'Quicksand', sans-serif; 
             margin: 0; 
             color: var(--dark); 
             line-height: 1.6;
-            /* Sfondo prato verde */
             background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-attachment: fixed;
@@ -38,7 +36,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
-        /* Titolo con font Quicksand Bold */
         h1 { 
             font-size: 4rem; 
             margin: 0; 
@@ -54,4 +51,58 @@
             max-width: 700px; 
             margin: -30px auto 40px; 
             background: white; 
-            padding: 25px;
+            padding: 25px; 
+            border: 3px solid var(--dark);
+            text-align: center;
+            box-shadow: 10px 10px 0px var(--secondary);
+            position: relative;
+            z-index: 10;
+            border-radius: 15px;
+        }
+
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+
+        .section-card { 
+            background: var(--light); 
+            padding: 40px; 
+            border-radius: 30px; 
+            border: 2px solid var(--dark);
+            margin-bottom: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        h2 { font-size: 2.2rem; text-align: center; color: var(--dark); text-transform: uppercase; margin-top: 0; font-weight: 700; }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 1.1rem; }
+        
+        input, select { 
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid var(--dark); 
+            border-radius: 15px; 
+            box-sizing: border-box;
+            font-size: 1rem;
+            background: #fff;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .btn-paypal { 
+            background: #0070ba; 
+            color: white; 
+            width: 100%; 
+            padding: 20px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-family: 'Quicksand', sans-serif;
+        }
+        .btn
