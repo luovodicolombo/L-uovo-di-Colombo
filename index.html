@@ -7,22 +7,22 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #ffcc00; 
-            --secondary: #2ecc71; 
-            --dark: #2c3e50;
-            --light: rgba(255, 255, 255, 0.9);
+            --primary: #f4d03f; 
+            --dark: #2c241e;
+            --paper: #fdfcf0; /* Colore carta avorio/antica */
+            --accent: #e67e22;
         }
 
         body { 
-            font-family: 'Quicksand', sans-serif; 
+            font-family: 'Special Elite', serif; 
             margin: 0; 
             color: var(--dark); 
             line-height: 1.6;
-            background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -30,207 +30,44 @@
         
         header { 
             background: var(--primary); 
-            padding: 60px 20px; 
+            padding: 50px 20px; 
             text-align: center; 
-            border-bottom: 8px solid var(--dark);
+            border-bottom: 3px solid var(--dark);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         h1 { 
-            font-size: 4rem; 
+            font-size: 3.5rem; 
             margin: 0; 
-            text-transform: uppercase; 
-            letter-spacing: -1px; 
-            color: var(--dark); 
-            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .tagline { font-size: 1.4rem; font-weight: 600; margin-top: 10px; }
+        .tagline { font-size: 1.2rem; margin-top: 10px; font-weight: bold; }
 
         .mini-bio { 
-            max-width: 700px; 
-            margin: -30px auto 40px; 
-            background: white; 
-            padding: 25px; 
-            border: 3px solid var(--dark);
-            text-align: center;
-            box-shadow: 10px 10px 0px var(--secondary);
+            max-width: 650px; 
+            margin: -25px auto 40px; 
+            background: var(--paper); 
+            padding: 30px; 
+            border: 1px solid #d1d1d1;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
             position: relative;
             z-index: 10;
-            border-radius: 15px;
+            transform: rotate(-0.5deg); /* Effetto foglio appoggiato */
         }
 
         .container { max-width: 800px; margin: auto; padding: 20px; }
 
         .section-card { 
-            background: var(--light); 
+            background: rgba(255, 255, 255, 0.96); 
             padding: 40px; 
-            border-radius: 30px; 
-            border: 2px solid var(--dark);
+            border-radius: 4px;
+            border: 1px solid #ccc;
             margin-bottom: 50px;
-            backdrop-filter: blur(5px);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
         }
 
-        h2 { font-size: 2.2rem; text-align: center; color: var(--dark); text-transform: uppercase; margin-top: 0; font-weight: 700; }
-        
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 1.1rem; }
-        
-        input, select { 
-            width: 100%; 
-            padding: 15px; 
-            border: 2px solid var(--dark); 
-            border-radius: 15px; 
-            box-sizing: border-box;
-            font-size: 1rem;
-            background: #fff;
-            font-family: 'Quicksand', sans-serif;
-        }
-
-        .btn-paypal { 
-            background: #0070ba; 
-            color: white; 
-            width: 100%; 
-            padding: 20px; 
-            border: none; 
-            border-radius: 50px; 
-            font-size: 1.4rem; 
-            font-weight: 700; 
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.2s, background 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            font-family: 'Quicksand', sans-serif;
-        }
-        .btn-paypal:hover { background: #005ea6; transform: translateY(-3px); }
-
-        footer { text-align: center; padding: 40px; color: white; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); font-weight: 700; }
-
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 15px; 
-        }
-        .photo-placeholder { 
-            background: rgba(255,255,255,0.7); 
-            height: 150px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-radius: 20px;
-            border: 2px dashed var(--dark);
-            color: #555;
-            font-weight: 700;
-        }
-    </style>
-
-    <script>
-        function aggiornaLinkPayPal() {
-            const select = document.getElementById('quantita');
-            const customQtyInput = document.getElementById('custom-qty');
-            const btnPaypal = document.getElementById('paypal-link');
-            const baseUrl = "https://www.paypal.me/BarlattaniAnastasia/";
-            
-            let prezzo = "4.80"; // Prezzo default 6 uova
-
-            if (select.value === '6') {
-                prezzo = "4.80";
-            } else if (select.value === '12') {
-                prezzo = "9.60";
-            } else if (select.value === '24') {
-                prezzo = "19.20";
-            } else if (select.value === 'custom') {
-                const qty = customQtyInput.value || 0;
-                prezzo = (qty * 0.80).toFixed(2);
-            }
-
-            btnPaypal.href = baseUrl + prezzo;
-        }
-
-        function checkQuantita(select) {
-            var customInput = document.getElementById('custom-qty-group');
-            if(select.value === 'custom') {
-                customInput.style.display = 'block';
-            } else {
-                customInput.style.display = 'none';
-            }
-            aggiornaLinkPayPal();
-        }
-    </script>
-</head>
-<body>
-
-<header>
-    <h1>CHE DUE UOVA!</h1>
-    <p class="tagline">Genuinità fresca da galline felici nel prato, solo da "L'UOVO DI COLOMBO". Benvenuto/a.</p>
-</header>
-
-<div class="mini-bio">
-    <strong>Chi sono:</strong> Ho 22 anni e credo nel rispetto della natura. Le mie galline corrono libere in questo prato ogni giorno. Ti porto a casa uova freschissime (0,80€ l'una), sane e prodotte con amore.
-</div>
-
-<div class="container">
-
-    <section class="section-card">
-        <h2>🥚 ORDINA E PAGA ORA</h2>
-        <form>
-            <div class="form-group">
-                <label>Nome e Cognome</label>
-                <input type="text" placeholder="Mario Rossi" required>
-            </div>
-            
-            <div class="form-group">
-                <label>Indirizzo di Consegna</label>
-                <input type="text" placeholder="Via, Civico, Città" required>
-            </div>
-
-            <div class="form-group">
-                <label>Scegli la quantità</label>
-                <select id="quantita" onchange="checkQuantita(this)" required>
-                    <option value="6">Mezza dozzina (6 uova) - 4,80€</option>
-                    <option value="12">Una dozzina (12 uova) - 9,60€</option>
-                    <option value="24">Due dozzine (24 uova) - 19,20€</option>
-                    <option value="custom">Altro numero (0,80€ cad.)</option>
-                </select>
-            </div>
-
-            <div class="form-group" id="custom-qty-group" style="display:none;">
-                <label>Quante uova vuoi? (0,80€ l'una)</label>
-                <input type="number" id="custom-qty" placeholder="Esempio: 10" oninput="aggiornaLinkPayPal()">
-            </div>
-
-            <div style="background: #fff3cd; padding: 15px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #ffeeba; text-align: center;">
-              
-            </div>
-
-            <a href="https://www.paypal.me/BarlattaniAnastasia/4.80" id="paypal-link" class="btn-paypal" target="_blank">
-                Paga ora con PayPal
-            </a>
-        </form>
-    </section>
-
-    <section class="section-card">
-        <h2>Il mio Lavoro</h2>
-        <p>Allevo le mie galline all'aperto. Niente gabbie, solo erba fresca e libertà. Questo garantisce un uovo saporito e ricco di nutrienti, esattamente come quelli di una volta.</p>
-    </section>
-
-    <section class="section-card">
-        <h2>Galleria</h2>
-        <div class="gallery">
-            <div class="photo-placeholder">Foto Galline</div>
-            <div class="photo-placeholder">Foto Uova</div>
-            <div class="photo-placeholder">Foto Prato</div>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 - Che Due Uova! - Allevamento Etico di Anastasia Barlattani</p>
-</footer>
-
-</body>
-</html>
+        h2 { 
+            font-size: 1.8rem; 
+            color: var(--dark);
