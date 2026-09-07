@@ -3,69 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHE DUE UOVA! | Freschezza a 22 anni</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-
+    <title>L'Oro di Colombo - Miele Artigianale</title>
     <style>
         :root {
-            --primary: #f4d03f; 
-            --dark: #2c241e;
-            --paper: #fdfcf0; /* Colore carta avorio/antica */
-            --accent: #e67e22;
+            --primary: #f39c12; /* Giallo miele */
+            --accent: #d35400; /* Arancio scuro/Ambra */
+            --dark: #4a2311; /* Marrone scuro */
+            --bg-color: #fff9e6; /* Sfondo chiaro caldo */
         }
 
-        body { 
-            font-family: 'Special Elite', serif; 
-            margin: 0; 
-            color: var(--dark); 
+        body {
+            font-family: 'Special Elite', serif, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--primary);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 { margin: 0; font-size: 3rem; }
+        .tagline { font-size: 1.2rem; font-weight: bold; margin-top: 10px; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .mini-bio {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 760px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             line-height: 1.6;
-            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
-        
-        header { 
-            background: var(--primary); 
-            padding: 50px 20px; 
-            text-align: center; 
-            border-bottom: 3px solid var(--dark);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        .tagline { font-size: 1.2rem; margin-top: 10px; font-weight: bold; }
-
-        .mini-bio { 
-            max-width: 650px; 
-            margin: -25px auto 40px; 
-            background: var(--paper); 
-            padding: 30px; 
-            border: 1px solid #d1d1d1;
-            box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 10;
-            transform: rotate(-0.5deg); /* Effetto foglio appoggiato */
-        }
-
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-
-        .section-card { 
-            background: rgba(255, 255, 255, 0.96); 
-            padding: 40px; 
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            margin-bottom: 50px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+        .section-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         h2 { 
@@ -84,9 +71,10 @@
             padding: 12px; 
             border: 1px solid #999; 
             background: transparent;
-            font-family: 'Special Elite', serif;
+            font-family: 'Special Elite', serif, sans-serif;
             font-size: 1.1rem;
             color: var(--dark);
+            box-sizing: border-box;
         }
 
         input:focus, select:focus {
@@ -102,7 +90,7 @@
             padding: 20px; 
             border: none; 
             font-size: 1.5rem; 
-            font-family: 'Special Elite', serif;
+            font-family: 'Special Elite', serif, sans-serif;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -111,6 +99,7 @@
             transition: all 0.3s;
             margin-top: 20px;
             box-shadow: 0 4px 0px #1a252f;
+            box-sizing: border-box;
         }
         .btn-paypal:hover { 
             background: #34495e; 
@@ -126,7 +115,12 @@
             font-size: 0.95rem;
         }
 
-        footer { text-align: center; padding: 50px; color: white; text-shadow: 1px 1px 4px black; }
+        footer { 
+            text-align: center; 
+            padding: 50px; 
+            background: var(--dark);
+            color: white; 
+        }
 
         .gallery { 
             display: grid; 
@@ -142,27 +136,30 @@
             border: 1px solid #ddd;
             color: #888;
             font-style: italic;
+            border-radius: 4px;
         }
     </style>
 
     <script>
+        // Attenzione: ho impostato un prezzo fittizio di 6,00€ a vasetto. 
+        // Modifica la variabile prezzo in base a quanto costano realmente.
         function aggiornaLinkPayPal() {
             const select = document.getElementById('quantita');
             const customQtyInput = document.getElementById('custom-qty');
             const btnPaypal = document.getElementById('paypal-link');
             const baseUrl = "https://www.paypal.me/BarlattaniAnastasia/";
             
-            let prezzo = "4.80"; 
+            let prezzo = "6.00"; 
 
-            if (select.value === '6') {
-                prezzo = "4.80";
-            } else if (select.value === '12') {
-                prezzo = "9.60";
-            } else if (select.value === '24') {
-                prezzo = "19.20";
+            if (select.value === '1') {
+                prezzo = "6.00";
+            } else if (select.value === '2') {
+                prezzo = "12.00";
+            } else if (select.value === '3') {
+                prezzo = "18.00";
             } else if (select.value === 'custom') {
                 const qty = customQtyInput.value || 0;
-                prezzo = (qty * 0.80).toFixed(2);
+                prezzo = (qty * 6.00).toFixed(2);
             }
 
             btnPaypal.href = baseUrl + prezzo;
@@ -178,13 +175,13 @@
 <body>
 
 <header>
-    <h1>CHE DUE UOVA!</h1>
-    <p class="tagline">FRESCHEZZA RURALE - CLASSE 2004</p>
+    <h1>L'ORO DI COLOMBO</h1>
+    <p class="tagline">MIELE ARTIGIANALE NATURALE</p>
 </header>
 
 <div class="mini-bio">
-    <strong>CHI SONO:</strong><br>
-    Ho 22 anni e credo nel rispetto della natura. Le mie galline corrono libere in questo prato ogni giorno. Ti porto a casa uova freschissime, sane e prodotte con amore (0,80&euro; l'una).
+    <strong>CHI SIAMO:</strong><br>
+    Il miele che trovi qui è il frutto del lavoro del mio amico Andre, che cura le sue api in Sicilia con immensa dedizione. Ti portiamo a casa un prodotto 100% artigianale, estratto a freddo e non pastorizzato, per conservare intatti tutti i profumi della natura (6,00&euro; a vasetto).
 </div>
 
 <div class="container">
@@ -205,23 +202,23 @@
             <div class="form-group">
                 <label>SELEZIONA QUANTIT&Agrave;</label>
                 <select id="quantita" onchange="checkQuantita(this)" required>
-                    <option value="6">06 UOVA (MEZZA DOZZINA) - 4,80&euro;</option>
-                    <option value="12">12 UOVA (UNA DOZZINA) - 9,60&euro;</option>
-                    <option value="24">24 UOVA (DUE DOZZINE) - 19,20&euro;</option>
+                    <option value="1">1 VASETTO (250g) - 6,00&euro;</option>
+                    <option value="2">2 VASETTI (500g tot) - 12,00&euro;</option>
+                    <option value="3">3 VASETTI (750g tot) - 18,00&euro;</option>
                     <option value="custom">QUANTIT&Agrave; PERSONALIZZATA</option>
                 </select>
             </div>
 
             <div class="form-group" id="custom-qty-group" style="display:none;">
-                <label>NUMERO DI UOVA (0,80&euro; CAD.):</label>
-                <input type="number" id="custom-qty" placeholder="Es. 10" oninput="aggiornaLinkPayPal()">
+                <label>NUMERO DI VASETTI (6,00&euro; CAD.):</label>
+                <input type="number" id="custom-qty" placeholder="Es. 5" oninput="aggiornaLinkPayPal()">
             </div>
 
             <div class="info-box">
                 IL PREZZO DEL LINK PAYPAL SI AGGIORNA AUTOMATICAMENTE IN BASE ALLA TUA SCELTA.
             </div>
 
-            <a href="https://www.paypal.me/BarlattaniAnastasia/4.80" id="paypal-link" class="btn-paypal" target="_blank">
+            <a href="https://www.paypal.me/BarlattaniAnastasia/6.00" id="paypal-link" class="btn-paypal" target="_blank">
                 PAGA ORA VIA PAYPAL
             </a>
         </form>
@@ -229,22 +226,22 @@
 
     <section class="section-card">
         <h2>NOTE DI PRODUZIONE</h2>
-        <p>Allevo le mie galline all'aperto. Niente gabbie, solo erba fresca e libertà. Questo garantisce un uovo saporito e ricco di nutrienti, esattamente come quelli di una volta.</p>
+        <p>Le nostre api bottinano in aree incontaminate, lontane da fonti di inquinamento. Raccogliamo il miele nel pieno rispetto del ciclo vitale dell'alveare. Niente lavorazioni industriali: solo la pazienza e i tempi che la natura ci impone, per garantirti un gusto autentico e genuino.</p>
     </section>
 
     <section class="section-card">
         <h2>ARCHIVIO FOTOGRAFICO</h2>
         <div class="gallery">
-            <div class="photo-placeholder">Galline al pascolo</div>
-            <div class="photo-placeholder">Uova di giornata</div>
-            <div class="photo-placeholder">Il nostro prato</div>
+            <div class="photo-placeholder">Le nostre arnie</div>
+            <div class="photo-placeholder">Miele in vasetto</div>
+            <div class="photo-placeholder">Il raccolto</div>
         </div>
     </section>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 - CHE DUE UOVA! - ALLEVAMENTO ETICO DI ANASTASIA BARLATTANI</p>
+    <p>&copy; 2026 - L'ORO DI COLOMBO - MIELE ARTIGIANALE (Sviluppato da Anastasia Barlattani)</p>
 </footer>
 
 </body>
