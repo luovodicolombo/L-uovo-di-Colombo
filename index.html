@@ -6,10 +6,10 @@
     <title>L'Uovo e L'Ape di Colombo</title>
     <style>
         :root {
-            --primary: #f39c12; /* Giallo caldo */
-            --accent: #d35400; /* Arancio miele */
-            --dark: #2c3e50; /* Blu scuro elegante */
-            --bg-color: #fffaf0; /* Sfondo panna */
+            --primary: #c0392b; /* Rosso rustico / mattone */
+            --accent: #d35400; /* Arancio caldo */
+            --dark: #3e2723; /* Marrone terra/legno scuro */
+            --bg-color: #fcf8f2; /* Sfondo carta grezza / écru */
         }
 
         body {
@@ -18,89 +18,95 @@
             color: var(--dark);
             margin: 0;
             padding: 0;
+            background-image: radial-gradient(#e6ded5 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: var(--primary);
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            padding: 50px 20px;
+            background: var(--dark);
+            color: #fcf8f2;
+            border-bottom: 5px solid var(--primary);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
         }
 
-        h1 { margin: 0; font-size: 2.8rem; }
-        .tagline { font-size: 1.1rem; font-weight: bold; margin-top: 10px; }
+        h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; }
+        .tagline { font-size: 1.2rem; font-style: italic; margin-top: 10px; color: #d7ccc8; }
 
         .container {
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .mini-bio {
             background: #fff;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 760px;
-            border-left: 5px solid var(--accent);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            line-height: 1.6;
+            padding: 25px;
+            margin: 25px auto;
+            border: 2px dashed var(--dark);
+            box-shadow: 4px 4px 0px rgba(62,39,35,0.1);
+            line-height: 1.7;
+            position: transform;
+            transform: rotate(-0.5deg);
         }
 
         .section-card {
-            background: white;
+            background: #fff;
             padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 35px;
+            border: 2px solid var(--dark);
+            box-shadow: 6px 6px 0px var(--dark);
+            border-radius: 4px;
         }
 
         h2 { 
-            font-size: 1.8rem; 
+            font-size: 1.7rem; 
             color: var(--dark); 
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 3px double var(--primary);
             display: inline-block;
             margin-bottom: 25px;
+            text-transform: uppercase;
         }
         
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--dark); }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--dark); font-size: 1.05rem; }
         
         input { 
             width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ccc; 
-            background: #fafafa;
+            padding: 14px; 
+            border: 2px solid var(--dark); 
+            background: #fffdf9;
             font-family: 'Special Elite', serif, sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--dark);
             box-sizing: border-box;
-            border-radius: 4px;
+            border-radius: 2px;
         }
 
         input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--primary);
             background: #fff;
         }
 
         .cart-total {
-            background: #fdf3d8;
-            padding: 15px;
-            font-size: 1.2rem;
+            background: #fff9c4;
+            padding: 20px;
+            font-size: 1.3rem;
             font-weight: bold;
             text-align: center;
-            border: 2px dashed var(--accent);
-            margin-top: 20px;
-            border-radius: 4px;
+            border: 3px solid var(--dark);
+            margin-top: 25px;
+            box-shadow: 3px 3px 0px var(--dark);
         }
 
         .btn-paypal { 
-            background: #2c3e50; 
+            background: var(--primary); 
             color: white; 
             width: 100%; 
             padding: 20px; 
-            border: none; 
+            border: 2px solid var(--dark); 
             font-size: 1.5rem; 
             font-family: 'Special Elite', serif, sans-serif;
             cursor: pointer;
@@ -108,22 +114,23 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: all 0.3s;
-            margin-top: 20px;
-            box-shadow: 0 4px 0px #1a252f;
+            transition: all 0.1s ease;
+            margin-top: 25px;
+            box-shadow: 4px 4px 0px var(--dark);
             box-sizing: border-box;
-            border-radius: 4px;
+            font-weight: bold;
         }
         
         .btn-paypal:hover { 
-            background: #34495e; 
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0px #1a252f;
+            background: #a93226; 
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--dark);
         }
 
         .btn-paypal.disabled {
-            background: #95a5a6;
-            box-shadow: 0 4px 0px #7f8c8d;
+            background: #b0bec5;
+            color: #546e7a;
+            box-shadow: 4px 4px 0px #37474f;
             pointer-events: none;
             cursor: not-allowed;
         }
@@ -132,7 +139,9 @@
             text-align: center; 
             padding: 40px; 
             background: var(--dark);
-            color: white; 
+            color: #d7ccc8; 
+            font-size: 0.95rem;
+            border-top: 5px solid var(--primary);
         }
 
         .gallery { 
@@ -141,23 +150,26 @@
             gap: 20px; 
         }
         .photo-placeholder { 
-            background: #eee; 
-            height: 150px; 
+            background: #f5f2eb; 
+            height: 160px; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            border: 1px solid #ddd;
-            color: #888;
+            border: 2px dashed var(--dark);
+            color: #795548;
             font-style: italic;
-            border-radius: 4px;
             text-align: center;
             padding: 10px;
+        }
+
+        .story-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
     </style>
 
     <script>
         function aggiornaTotale() {
-            // Prende i valori inseriti, se vuoti usa 0
             const qtyUova = parseInt(document.getElementById('qty-uova').value) || 0;
             const qtyMiele = parseInt(document.getElementById('qty-miele').value) || 0;
             
@@ -165,17 +177,13 @@
             const boxTotale = document.getElementById('prezzo-totale');
             const baseUrl = "https://www.paypal.me/BarlattaniAnastasia/";
             
-            // Prezzi unitari (modificali qui se cambiano)
             const prezzoUovo = 0.80;
-            const prezzoMiele = 6.00;
+            const prezzoMiele = 15.00;
             
-            // Calcolo totale
             const totale = (qtyUova * prezzoUovo) + (qtyMiele * prezzoMiele);
             
-            // Aggiorna il testo a schermo
-            boxTotale.innerHTML = "TOTALE ORDINE: " + totale.toFixed(2) + " &euro;";
+            boxTotale.innerHTML = "TOTALE DELLA SPESA: " + totale.toFixed(2) + " &euro;";
             
-            // Attiva o disattiva il pulsante PayPal in base al totale
             if (totale > 0) {
                 btnPaypal.href = baseUrl + totale.toFixed(2);
                 btnPaypal.classList.remove("disabled");
@@ -190,70 +198,72 @@
 
 <header>
     <h1>L'UOVO E L'APE DI COLOMBO</h1>
-    <p class="tagline">FRESCHEZZA E NATURA DALLE CAMPAGNE DI LECCO</p>
+    <p class="tagline">Robba genuina dalle campagne di Lecco</p>
 </header>
-
-<div class="mini-bio">
-    <strong>IL NOSTRO PROGETTO:</strong><br>
-    Tutto nasce dalla dedizione di Andre. Nel tranquillo terreno di sua zia, immerso nel verde delle campagne di Lecco, alleva galline felici all'aperto e cura con passione le sue arnie. Il risultato? Uova freschissime da galline ruspanti (0,80&euro; l'una) e un miele artigianale puro e genuino (6,00&euro; a vasetto), che porta con sé tutto il sapore della natura.
-</div>
 
 <div class="container">
 
+    <div class="mini-bio">
+        <strong>IL NOSTRO CANTUCCINO DI CAMPAGNA:</strong><br>
+        Qui non ci sono fabbriche o catene di montaggio. C'è solo il buon Andre che si rimbocca le maniche nel terreno di sua zia, tra le colline e il verde di Lecco. È un lavoro fatto di fatica vera, mani nella terra, rispetto per le stagioni e amore spassionato per gli animali. 
+    </div>
+
     <section class="section-card">
-        <h2>COMPONI IL TUO ORDINE</h2>
+        <h2>FGLI LA TUA SPESA GENUINA</h2>
         <form>
             <div class="form-group">
-                <label>NOME E COGNOME / RIFERIMENTO</label>
-                <input type="text" placeholder="Scrivi qui il tuo nome..." required>
+                <label>A CHI LE DIAMO? (Nome e Cognome)</label>
+                <input type="text" placeholder="Il tuo nome qui..." required>
             </div>
             
             <div class="form-group">
-                <label>INDIRIZZO PER LA CONSEGNA</label>
-                <input type="text" placeholder="Via, Civico, Città" required>
+                <label>DOVE LE PORTIAMO? (Indirizzo a Lecco e dintorni)</label>
+                <input type="text" placeholder="Via, numero civico, paese..." required>
             </div>
 
             <!-- Selezione Uova -->
             <div class="form-group">
-                <label>NUMERO DI UOVA (0,80&euro; l'una)</label>
-                <input type="number" id="qty-uova" min="0" placeholder="Es. 6, 12, 24..." oninput="aggiornaTotale()">
+                <label>🥚 Uova fresche di giornata (0,80&euro; l'una)</label>
+                <input type="number" id="qty-uova" min="0" placeholder="Quante uova ti servono?" oninput="aggiornaTotale()">
             </div>
 
             <!-- Selezione Miele -->
             <div class="form-group">
-                <label>NUMERO DI VASETTI DI MIELE (6,00&euro; l'uno)</label>
-                <input type="number" id="qty-miele" min="0" placeholder="Es. 1, 2, 3..." oninput="aggiornaTotale()">
+                <label>🍯 Barattolo di Miele artigianale da 400 ml (15,00&euro; l'uno)</label>
+                <input type="number" id="qty-miele" min="0" placeholder="Quanti barattoli vuoi?" oninput="aggiornaTotale()">
             </div>
 
             <div class="cart-total" id="prezzo-totale">
-                TOTALE ORDINE: 0.00 &euro;
+                TOTALE DELLA SPESA: 0.00 &euro;
             </div>
 
             <a href="#" id="paypal-link" class="btn-paypal disabled" target="_blank">
-                PAGA ORA VIA PAYPAL
+                SALDA IL CONTO CON PAYPAL
             </a>
         </form>
     </section>
 
     <section class="section-card">
-        <h2>LE NOSTRE PRODUZIONI</h2>
-        <p><strong>🥚 Le Uova:</strong> Niente gabbie, solo erba fresca e libertà. Le nostre galline razzolano felici e questo garantisce un uovo saporito e ricco di nutrienti, esattamente come quelli di una volta.</p>
-        <p><strong>🍯 Il Miele:</strong> Le nostre api bottinano in aree incontaminate. Estraiamo il miele a freddo, senza lavorazioni industriali, solo con la pazienza che la natura ci impone.</p>
+        <h2>COSA PORTI IN TAVOLA</h2>
+        <div class="story-text">
+            <p><strong>🐔 Le Galline Ruspanti:</strong> Niente gabbie e niente mangimi strani. Le nostre galline razzolano libere nell'erba alta, beccano quello che la terra offre e si godono il sole. Il risultato? Un uovo dal tuorlo dorato e dal sapore autentico, proprio come quelli che mangiavi da piccolo a casa dei nonni.</p>
+            <p><strong>🐝 Le Api e il Miele:</strong> Le arnie stanno tranquille nel frutteto del terreno di famiglia. Le api bottinano i fiori selvatici di Lecco senza fretta. Noi tiriamo via il miele a freddo, senza toccarlo con trucchi industriali: tutto il profumo e la densità della natura così com'è, racchiusi in un barattolo da 400 ml.</p>
+        </div>
     </section>
 
     <section class="section-card">
-        <h2>DAL CAMPO ALLA TAVOLA</h2>
+        <h2>SCATTI DALLA CORTE</h2>
         <div class="gallery">
-            <div class="photo-placeholder">Le nostre galline al pascolo</div>
+            <div class="photo-placeholder">Le galline al pascolo libero</div>
             <div class="photo-placeholder">Le arnie nel verde di Lecco</div>
-            <div class="photo-placeholder">I nostri prodotti</div>
+            <div class="photo-placeholder">Il raccolto della terra</div>
         </div>
     </section>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 - L'UOVO E L'APE DI COLOMBO - (Sviluppato da Anastasia Barlattani)</p>
+    <p>&copy; 2026 - L'UOVO E L'APE DI COLOMBO &bull; Autentico e ruspante</p>
 </footer>
 
 </body>
