@@ -6,55 +6,104 @@
     <title>L'Uovo e L'Ape di Colombo</title>
     <style>
         :root {
-            --primary: #c0392b; /* Rosso rustico / mattone */
-            --accent: #d35400; /* Arancio caldo */
-            --dark: #3e2723; /* Marrone terra/legno scuro */
-            --bg-color: #fcf8f2; /* Sfondo carta grezza / écru */
+            --primary: #d4ac0d; /* Giallo miele intenso */
+            --accent: #b7950b; /* Giallo scuro/senape */
+            --dark: #3e2723; /* Marrone terra */
+            --bg-yellow: #fff9c4; /* Sfondo giallo chiaro */
         }
 
         body {
             font-family: 'Special Elite', serif, sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-yellow);
+            /* Trama a riquadri bianco e giallo chiaro stile tovaglia rustica */
+            background-image: 
+                linear-gradient(45deg, #ffffff 25%, transparent 25%), 
+                linear-gradient(-45deg, #ffffff 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #ffffff 75%), 
+                linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
             color: var(--dark);
             margin: 0;
             padding: 0;
-            background-image: radial-gradient(#e6ded5 1px, transparent 1px);
-            background-size: 20px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Api e Galline decorative fluttuanti sullo sfondo */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .bee {
+            position: absolute;
+            font-size: 1.8rem;
+            animation: fly 12s linear infinite;
+        }
+
+        .chicken {
+            position: absolute;
+            font-size: 2rem;
+            animation: walk 20s linear infinite;
+        }
+
+        @keyframes fly {
+            0% { transform: translate(-50px, 100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(calc(100vw + 50px), -100px) rotate(45deg); opacity: 0; }
+        }
+
+        @keyframes walk {
+            0% { transform: translate(-50px, 80vh); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(calc(100vw + 50px), 20vh); opacity: 0; }
         }
 
         header {
             text-align: center;
             padding: 50px 20px;
-            background: var(--dark);
-            color: #fcf8f2;
+            background: #ffffff;
+            color: var(--dark);
             border-bottom: 5px solid var(--primary);
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 2;
         }
 
-        h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; }
-        .tagline { font-size: 1.2rem; font-style: italic; margin-top: 10px; color: #d7ccc8; }
+        h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; color: #b78103; text-shadow: 1px 1px 0px #fff; }
+        .tagline { font-size: 1.2rem; font-style: italic; margin-top: 10px; color: var(--dark); }
 
         .container {
             max-width: 750px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .mini-bio {
-            background: #fff;
+            background: #ffffff;
             padding: 25px;
             margin: 25px auto;
-            border: 2px dashed var(--dark);
-            box-shadow: 4px 4px 0px rgba(62,39,35,0.1);
+            border: 3px dashed var(--primary);
+            box-shadow: 4px 4px 0px rgba(62,39,35,0.15);
             line-height: 1.7;
             transform: rotate(-0.5deg);
         }
 
         .section-card {
-            background: #fff;
+            background: #ffffff;
             padding: 30px;
             margin-bottom: 35px;
-            border: 2px solid var(--dark);
+            border: 3px solid var(--dark);
             box-shadow: 6px 6px 0px var(--dark);
             border-radius: 4px;
         }
@@ -102,7 +151,7 @@
 
         .btn-paypal { 
             background: var(--primary); 
-            color: white; 
+            color: #3e2723; 
             width: 100%; 
             padding: 20px; 
             border: 2px solid var(--dark); 
@@ -121,15 +170,15 @@
         }
         
         .btn-paypal:hover { 
-            background: #a93226; 
+            background: #f1c40f; 
             transform: translate(-2px, -2px);
             box-shadow: 6px 6px 0px var(--dark);
         }
 
         .btn-paypal.disabled {
-            background: #b0bec5;
-            color: #546e7a;
-            box-shadow: 4px 4px 0px #37474f;
+            background: #e0e0e0;
+            color: #9e9e9e;
+            box-shadow: 4px 4px 0px #bdbdbd;
             pointer-events: none;
             cursor: not-allowed;
         }
@@ -138,9 +187,11 @@
             text-align: center; 
             padding: 40px; 
             background: var(--dark);
-            color: #d7ccc8; 
+            color: #fffde7; 
             font-size: 0.95rem;
             border-top: 5px solid var(--primary);
+            position: relative;
+            z-index: 2;
         }
 
         .gallery { 
@@ -149,7 +200,7 @@
             gap: 20px; 
         }
         .photo-placeholder { 
-            background: #f5f2eb; 
+            background: #fffde7; 
             height: 160px; 
             display: flex; 
             align-items: center; 
@@ -194,6 +245,14 @@
     </script>
 </head>
 <body>
+
+<!-- Elementi animati sullo sfondo -->
+<div class="floating-elements">
+    <div class="bee" style="top: 20%; animation-delay: 0s;">🐝</div>
+    <div class="bee" style="top: 60%; animation-delay: 4s;">🐝</div>
+    <div class="chicken" style="top: 40%; animation-delay: 2s;">🐔</div>
+    <div class="bee" style="top: 80%; animation-delay: 7s;">🐝</div>
+</div>
 
 <header>
     <h1>L'UOVO E L'APE DI COLOMBO</h1>
