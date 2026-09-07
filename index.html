@@ -9,6 +9,7 @@
             --primary: #d4ac0d; /* Giallo miele intenso */
             --accent: #b7950b; /* Giallo scuro/senape */
             --dark: #3e2723; /* Marrone terra */
+            --ocra-bg: #f39c12; /* Ocra caldo per l'header */
             --bg-yellow: #fff9c4; /* Sfondo giallo chiaro */
         }
 
@@ -70,16 +71,17 @@
         header {
             text-align: center;
             padding: 50px 20px;
-            background: #ffffff;
-            color: var(--dark);
-            border-bottom: 5px solid var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: var(--ocra-bg);
+            color: #fffde7;
+            border-bottom: 5px solid var(--dark);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
             z-index: 2;
+            text-shadow: 2px 2px 0px rgba(62,39,35,0.4);
         }
 
-        h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; color: #b78103; text-shadow: 1px 1px 0px #fff; }
-        .tagline { font-size: 1.2rem; font-style: italic; margin-top: 10px; color: var(--dark); }
+        h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; color: #fffde7; }
+        .tagline { font-size: 1.2rem; font-style: italic; margin-top: 10px; color: #fff; }
 
         .container {
             max-width: 750px;
@@ -150,8 +152,8 @@
         }
 
         .btn-paypal { 
-            background: var(--primary); 
-            color: #3e2723; 
+            background: var(--ocra-bg); 
+            color: #fffde7; 
             width: 100%; 
             padding: 20px; 
             border: 2px solid var(--dark); 
@@ -167,10 +169,11 @@
             box-shadow: 4px 4px 0px var(--dark);
             box-sizing: border-box;
             font-weight: bold;
+            text-shadow: 1px 1px 0px rgba(62,39,35,0.4);
         }
         
         .btn-paypal:hover { 
-            background: #f1c40f; 
+            background: #d68910; 
             transform: translate(-2px, -2px);
             box-shadow: 6px 6px 0px var(--dark);
         }
@@ -181,6 +184,7 @@
             box-shadow: 4px 4px 0px #bdbdbd;
             pointer-events: none;
             cursor: not-allowed;
+            text-shadow: none;
         }
 
         footer { 
@@ -189,7 +193,7 @@
             background: var(--dark);
             color: #fffde7; 
             font-size: 0.95rem;
-            border-top: 5px solid var(--primary);
+            border-top: 5px solid var(--ocra-bg);
             position: relative;
             z-index: 2;
         }
